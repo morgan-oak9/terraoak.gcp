@@ -2,6 +2,8 @@ resource "google_compute_instance" "instance" {
   name         = "test"
   machine_type = "e2-medium"
   zone         = "us-central1-a"
+  deletion_protection = false
+  
 
   boot_disk {
     initialize_params {
@@ -13,6 +15,16 @@ resource "google_compute_instance" "instance" {
 
   attached_disk {
     device_name = "/dev/disk/by-id/google-*"
+  }
+
+  confidential_instance_config {
+    enable_confidential_compute = false
+  }
+
+  shielded_instance_config {
+    enable_integrity_monitoring = false
+    enable_secure_boot = false
+    enable_vtpm = false
   }
 
   network_interface {

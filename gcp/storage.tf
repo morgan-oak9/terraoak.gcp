@@ -36,7 +36,7 @@ resource "google_storage_bucket" "storage-2" {
     default_kms_key_name = google_kms_crypto_key.kms.name
   }
   retention_policy {
-    retention_period = "1000000000s"
+    retention_period = "100000"
   }
   
 }
