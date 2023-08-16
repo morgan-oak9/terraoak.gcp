@@ -28,4 +28,5 @@ resource "google_secret_manager_secret_iam_member" "sac_secret_manager_member" {
   secret_id = google_secret_manager_secret.sac_secret_manager.secret_id
   role      = "roles/secretmanager.secretAccessor"
   member    = "allUsers"
+  # oak9: Grant secrets access to only trusted users or accounts
 }
