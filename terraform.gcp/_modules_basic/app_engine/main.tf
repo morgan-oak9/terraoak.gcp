@@ -22,7 +22,7 @@ resource "google_app_engine_flexible_app_version" "sac_flexible_app" {
     path = "/"
   }
   api_config {
-    security_level = "SECURE_DEFAULT"
+    security_level = "secure_always"
     script         = "path/to/script.py"
   }
   handlers {
