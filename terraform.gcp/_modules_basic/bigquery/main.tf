@@ -14,6 +14,7 @@ resource "google_bigquery_dataset_iam_binding" "sac_bigquery_iam_binding" {
   dataset_id = google_bigquery_dataset.sac_bigquery_dataset.dataset_id
   role       = "roles/bigquery.dataViewer"
   members = [
+    # oak9: Limit access to only trusted users or accounts
     "allUsers",
   ]
 }
