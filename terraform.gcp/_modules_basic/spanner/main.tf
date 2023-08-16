@@ -44,4 +44,5 @@ resource "google_spanner_database_iam_member" "sac_spanner_db_member" {
   database = "your-database-name"
   role     = "roles/compute.networkUser"
   member   = "allUsers"
+  # oak9: Restrict database access to trusted members
 }
