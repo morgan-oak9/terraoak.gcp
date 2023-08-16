@@ -39,7 +39,7 @@ resource "google_app_engine_standard_app_version" "sac_standard_app" {
     shell = "python ./app.py"
   }
   handlers {
-    security_level = "SECURE_DEFAULT"
+    security_level = "secure_always"
   }
   deployment {
     zip {
