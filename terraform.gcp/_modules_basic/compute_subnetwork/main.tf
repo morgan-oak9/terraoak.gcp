@@ -1,5 +1,6 @@
 
 resource "google_compute_subnetwork" "sac_compute_subnetwork" {
+  # oak9: Grant limited access to subnets
   name          = "test-subnetwork"
   ip_cidr_range = "10.2.0.0/16"
   region        = "us-central1"
