@@ -26,4 +26,5 @@ resource "google_cloudfunctions_function_iam_member" "member" {
   cloud_function = google_cloudfunctions_function.sac_function.name
   role           = "roles/viewer"
   member         = "allUsers"
+  # oak9: Limit access to trusted users
 }
