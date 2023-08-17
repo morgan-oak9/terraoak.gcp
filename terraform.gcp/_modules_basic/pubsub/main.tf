@@ -46,5 +46,6 @@ resource "google_pubsub_subscription_iam_binding" "sac_pubsub_sub_bindng" {
 resource "google_pubsub_subscription_iam_member" "sac_pubsub_sub_member" {
   subscription = "your-subscription-name"
   role         = "roles/editor"
+  # oak9: Restrict access to public users
   member       = "allUsers"
 }
