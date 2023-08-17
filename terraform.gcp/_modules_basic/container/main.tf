@@ -2,7 +2,7 @@
 resource "google_container_cluster" "sac_container_cluster" {
   name                    = "test-container"
   initial_node_count      = 3
-  enable_kubernetes_alpha = true
+  enable_kubernetes_alpha = false
   enable_shielded_nodes   = false
   enable_legacy_abac      = true
   binary_authorization {
