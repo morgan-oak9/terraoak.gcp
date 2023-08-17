@@ -24,6 +24,7 @@ resource "google_pubsub_topic_iam_binding" "sac_pubsub_topic_binding" {
   topic   = google_pubsub_topic.sac_pubsub_topic.name
   role    = "roles/viewer"
   members = [
+    # oak9: Limit access to trusted users
     "allUsers",
   ]
 }
