@@ -39,6 +39,7 @@ resource "google_bigquery_table_iam_binding" "table_iam_binding" {
   table_id   = google_bigquery_table.sac_bigquery_table.table_id
   role       = "roles/bigquery.dataOwner"
   members = [
+    # oak9: Limit access to only trusted users or accounts
     "allUsers",
   ]
 }
