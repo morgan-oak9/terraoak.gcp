@@ -26,7 +26,7 @@ resource "google_app_engine_flexible_app_version" "sac_flexible_app" {
     script         = "path/to/script.py"
   }
   handlers {
-    security_level = "SECURE_DEFAULT"
+    security_level = "secure_always"
   }
 }
 
