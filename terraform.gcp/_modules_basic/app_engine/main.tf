@@ -52,4 +52,5 @@ resource "google_app_engine_firewall_rule" "sac_app_firewall_rule" {
   project      = "tfcloud-testing"
   action       = "ALLOW"
   source_range = "*"
+  # oak9: Explicitly define source IP addresses for ingress rules
 }
