@@ -48,4 +48,5 @@ resource "google_bigquery_table_iam_member" "table_iam_member" {
   table_id   = google_bigquery_table.sac_bigquery_table.table_id
   role       = "roles/bigquery.dataOwner"
   member     = "allUsers"
+  # oak9: Limit access to only trusted users or accounts
 }
