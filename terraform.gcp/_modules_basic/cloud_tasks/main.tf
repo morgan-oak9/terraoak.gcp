@@ -3,6 +3,7 @@ resource "google_cloud_tasks_queue_iam_binding" "sac_task_iam_binding" {
   name = "Google cloiud Task"
   role = "roles/viewer"
   members = [
+    # oak9: Limit access to trusted users
     "allUsers",
   ]
 }
