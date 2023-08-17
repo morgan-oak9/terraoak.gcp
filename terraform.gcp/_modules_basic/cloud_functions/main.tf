@@ -1,6 +1,7 @@
 
 resource "google_cloudfunctions_function" "sac_function" {
   name                = "function-test"
+  # oak9: Encrypt data-at-rest in Cloud Functions
   description         = "My function"
   runtime             = "nodejs16"
   available_memory_mb = 128
@@ -16,6 +17,7 @@ resource "google_cloudfunctions_function_iam_binding" "binding" {
   cloud_function = google_cloudfunctions_function.sac_function.name
   role           = "roles/viewer"
   members = [
+    # oak9: Limit access to trusted users
     "allUsers",
   ]
 }
@@ -26,4 +28,5 @@ resource "google_cloudfunctions_function_iam_member" "member" {
   cloud_function = google_cloudfunctions_function.sac_function.name
   role           = "roles/viewer"
   member         = "allUsers"
+  # oak9: Limit access to trusted users
 }

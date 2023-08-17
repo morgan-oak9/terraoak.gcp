@@ -7,6 +7,7 @@ resource "google_compute_firewall" "sac_compute_firewall" {
     protocol = "icmp"
   }
   source_ranges = ["*"]
+  # oak9: Explicitly define source IP addresses for ingress rules
   allow {
     protocol = "tcp"
     ports    = ["80", "8080", "1000-2000"]

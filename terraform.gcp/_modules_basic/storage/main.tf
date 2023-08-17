@@ -12,6 +12,7 @@ resource "google_storage_bucket" "sac_storage_bucket" {
   cors {
     method = ["GET", "HEAD", "PUT", "POST", "DELETE"]
     origin = ["*"]
+  # oak9: CORS configuration should only allow requests from trusted origins
   }
 }
 

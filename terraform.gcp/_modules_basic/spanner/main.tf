@@ -11,6 +11,7 @@ resource "google_spanner_instance_iam_binding" "sac_spanner_instance_binding" {
   instance = "sac-spanner"
   role     = "roles/spanner.databaseAdmin"
   members = [
+    # oak9: Restrict database access to trusted members
     "allUsers",
   ]
 }
@@ -19,6 +20,7 @@ resource "google_spanner_instance_iam_member" "sac_spanner_instance_member" {
   instance = "your-instance-name"
   role     = "roles/spanner.databaseAdmin"
   member   = "allUsers"
+  # oak9: Restrict database access to trusted members
 }
 
 resource "google_spanner_database" "sac_spanner_db" {
@@ -35,6 +37,7 @@ resource "google_spanner_database_iam_binding" "sac_spanner_db_binding" {
   database = "your-database-name"
   role     = "roles/compute.networkUser"
   members = [
+    # oak9: Restrict database access to trusted members
     "allUsers",
   ]
 }
@@ -44,4 +47,5 @@ resource "google_spanner_database_iam_member" "sac_spanner_db_member" {
   database = "your-database-name"
   role     = "roles/compute.networkUser"
   member   = "allUsers"
+  # oak9: Restrict database access to trusted members
 }

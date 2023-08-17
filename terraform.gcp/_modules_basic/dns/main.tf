@@ -6,7 +6,7 @@ resource "google_dns_managed_zone" "sac_dns_zone" {
   visibility  = "private"
   dnssec_config {
     default_key_specs {
-      algorithm = "rsasha1"
+      algorithm = "rsasha512"
     }
     state = "off"
   }

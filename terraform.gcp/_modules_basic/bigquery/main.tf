@@ -14,6 +14,7 @@ resource "google_bigquery_dataset_iam_binding" "sac_bigquery_iam_binding" {
   dataset_id = google_bigquery_dataset.sac_bigquery_dataset.dataset_id
   role       = "roles/bigquery.dataViewer"
   members = [
+    # oak9: Limit access to only trusted users or accounts
     "allUsers",
   ]
 }
@@ -22,6 +23,7 @@ resource "google_bigquery_dataset_iam_member" "sac_bigquery_iam_member" {
   dataset_id = google_bigquery_dataset.sac_bigquery_dataset.dataset_id
   role       = "roles/bigquery.dataEditor"
   member     = "allUsers"
+  # oak9: Limit access to only trusted users or accounts
 }
 
 resource "google_bigquery_table" "sac_bigquery_table" {
@@ -39,6 +41,7 @@ resource "google_bigquery_table_iam_binding" "table_iam_binding" {
   table_id   = google_bigquery_table.sac_bigquery_table.table_id
   role       = "roles/bigquery.dataOwner"
   members = [
+    # oak9: Limit access to only trusted users or accounts
     "allUsers",
   ]
 }
@@ -48,4 +51,5 @@ resource "google_bigquery_table_iam_member" "table_iam_member" {
   table_id   = google_bigquery_table.sac_bigquery_table.table_id
   role       = "roles/bigquery.dataOwner"
   member     = "allUsers"
+  # oak9: Limit access to only trusted users or accounts
 }

@@ -24,6 +24,7 @@ resource "google_pubsub_topic_iam_binding" "sac_pubsub_topic_binding" {
   topic   = google_pubsub_topic.sac_pubsub_topic.name
   role    = "roles/viewer"
   members = [
+    # oak9: Limit access to trusted users
     "allUsers",
   ]
 }
@@ -33,11 +34,13 @@ resource "google_pubsub_topic_iam_member" "sac_pubsub_topic_member" {
   topic   = google_pubsub_topic.sac_pubsub_topic.name
   role    = "roles/viewer"
   member  = "allUsers"
+  # oak9: Limit access to trusted users
 }
 
 resource "google_pubsub_subscription_iam_binding" "sac_pubsub_sub_bindng" {
   subscription = "your-subscription-name"
   role         = "roles/editor"
+  # oak9: Restrict access to public users
   members = [
     "allUsers",
   ]
@@ -46,5 +49,6 @@ resource "google_pubsub_subscription_iam_binding" "sac_pubsub_sub_bindng" {
 resource "google_pubsub_subscription_iam_member" "sac_pubsub_sub_member" {
   subscription = "your-subscription-name"
   role         = "roles/editor"
+  # oak9: Restrict access to public users
   member       = "allUsers"
 }

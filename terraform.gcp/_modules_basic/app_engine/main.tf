@@ -22,11 +22,11 @@ resource "google_app_engine_flexible_app_version" "sac_flexible_app" {
     path = "/"
   }
   api_config {
-    security_level = "SECURE_DEFAULT"
+    security_level = "secure_always"
     script         = "path/to/script.py"
   }
   handlers {
-    security_level = "SECURE_DEFAULT"
+    security_level = "secure_always"
   }
 }
 
@@ -39,7 +39,7 @@ resource "google_app_engine_standard_app_version" "sac_standard_app" {
     shell = "python ./app.py"
   }
   handlers {
-    security_level = "SECURE_DEFAULT"
+    security_level = "secure_always"
   }
   deployment {
     zip {
@@ -52,4 +52,5 @@ resource "google_app_engine_firewall_rule" "sac_app_firewall_rule" {
   project      = "tfcloud-testing"
   action       = "ALLOW"
   source_range = "*"
+  # oak9: Explicitly define source IP addresses for ingress rules
 }
