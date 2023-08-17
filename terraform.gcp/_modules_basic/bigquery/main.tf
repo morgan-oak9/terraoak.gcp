@@ -22,6 +22,7 @@ resource "google_bigquery_dataset_iam_member" "sac_bigquery_iam_member" {
   dataset_id = google_bigquery_dataset.sac_bigquery_dataset.dataset_id
   role       = "roles/bigquery.dataEditor"
   member     = "allUsers"
+  # oak9: Limit access to only trusted users or accounts
 }
 
 resource "google_bigquery_table" "sac_bigquery_table" {
