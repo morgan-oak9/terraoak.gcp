@@ -22,6 +22,7 @@ resource "google_kms_key_ring_iam_binding" "sac_key_ring_binding" {
   key_ring_id = "your-key-ring-id"
   role        = "roles/cloudkms.admin"
   members = [
+    # oak9: Grant key ring access to only trusted users or accounts
     "allUsers",
   ]
 }
