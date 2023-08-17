@@ -19,6 +19,7 @@ resource "google_spanner_instance_iam_member" "sac_spanner_instance_member" {
   instance = "your-instance-name"
   role     = "roles/spanner.databaseAdmin"
   member   = "allUsers"
+  # oak9: Restrict database access to trusted members
 }
 
 resource "google_spanner_database" "sac_spanner_db" {
